@@ -17,10 +17,26 @@ class Queue {
     this.size = 0;
   }
 
+  traverse() {
+    let currentNode = this.first;
+    while(currentNode) {
+      console.log(currentNode.val);
+      currentNode = currentNode.next;
+    }
+  }
+
   /** enqueue(val): add new value to end of the queue. Returns undefined. */
 
   enqueue(val) {
-
+    let newNode = new Node(val);
+    if(!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    }
+    // Point current tail to new tail
+    this.last.next = newNode;
+    // The update to new tail
+    this.last = newNode;
   }
 
   /** dequeue(): remove the node from the start of the queue
@@ -44,3 +60,11 @@ class Queue {
 }
 
 module.exports = Queue;
+
+let fruits = new Queue();
+
+fruits.enqueue('tomato');
+fruits.enqueue('mango');
+fruits.enqueue('apple');
+
+fruits.traverse();
