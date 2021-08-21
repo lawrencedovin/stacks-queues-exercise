@@ -44,9 +44,10 @@ class Queue {
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
-    // Remove Head
+    // Remove Head from start
     // Get following Node after head and make that into the new Head
-
+    let newHead = this.first.next;
+    this.first = newHead;
   }
 
   /** peek(): return the value of the first node in the queue. */
@@ -73,5 +74,5 @@ fruits.enqueue('mango');
 fruits.enqueue('apple');
 
 console.log(fruits.isEmpty());
-
+fruits.dequeue();
 fruits.traverse();
