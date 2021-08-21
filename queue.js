@@ -33,6 +33,7 @@ class Queue {
       this.first = newNode;
       this.last = newNode;
     }
+    this.size += 1;
     // Point current tail to new tail
     this.last.next = newNode;
     // The update to new tail
@@ -43,19 +44,21 @@ class Queue {
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
+    // Remove Head
+    // Get following Node after head and make that into the new Head
 
   }
 
   /** peek(): return the value of the first node in the queue. */
 
   peek() {
-
+    return this.first;
   }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
   isEmpty() {
-
+    return this.size === 0 ? true : false;
   }
 }
 
@@ -63,8 +66,12 @@ module.exports = Queue;
 
 let fruits = new Queue();
 
+console.log(fruits.isEmpty());
+
 fruits.enqueue('tomato');
 fruits.enqueue('mango');
 fruits.enqueue('apple');
+
+console.log(fruits.isEmpty());
 
 fruits.traverse();
