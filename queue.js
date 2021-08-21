@@ -44,10 +44,11 @@ class Queue {
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
-    // Remove Head from start
-    // Get following Node after head and make that into the new Head
+  // Remove Head from start
+  // Get following Node after head and make that into the new Head
     let newHead = this.first.next;
     this.first = newHead;
+    this.size -= 1;
   }
 
   /** peek(): return the value of the first node in the queue. */
