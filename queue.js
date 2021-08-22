@@ -17,6 +17,8 @@ class Queue {
     this.size = 0;
   }
 
+  /** traverse(): logs all Node values from Queue. */
+
   traverse() {
     let currentNode = this.first;
     while(currentNode) {

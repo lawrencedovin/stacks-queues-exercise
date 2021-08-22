@@ -28,9 +28,9 @@ class Stack {
     // Add 1 to length
     this.size += 1;
     // Point current tail to new tail/ new node
-    this.tail.next = newNode;
+    this.last.next = newNode;
     // Update tail and set it to newNode
-    this.tail = newNode;
+    this.last = newNode;
   }
 
   /** pop(): remove the node from the top of the stack
@@ -39,8 +39,24 @@ class Stack {
   pop() {
     if(this.isEmpty()) throw 'Stack is empty';
     let currentNode = this.first;
+    let newTail;
     while(currentNode) {
-
+      if(currentNode.next === this.last) newTail = currentNode;
+      currentNode = currentNode.next;
+    }
+    // Copies old tail to return it's value.
+    let copiedOldTail = this.last;
+    // Update current tail to new tail.
+    this.last = newTail;
+    console.log(`Old tail: ${copiedOldTail} New tail: ${newTail}`);
+  }
+  
+  /** traverse(): logs all Node values from Stack. */
+  traverse() {
+    let currentNode = this.first;
+    while(currentNode) {
+      console.log(currentNode.val);
+      currentNode = currentNode.next;
     }
   }
 
@@ -56,5 +72,13 @@ class Stack {
     return this.size === 0 ? true : false; 
   }
 }
+
+let cars = new Stack();
+cars.push('Lightning McQueen');
+cars.push('Mater');
+cars.push('Doc Hudson');
+cars.push('Sally Carrera');
+
+cars.traverse();
 
 module.exports = Stack;
