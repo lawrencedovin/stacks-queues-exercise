@@ -48,7 +48,9 @@ class Stack {
     let copiedOldTail = this.last;
     // Update current tail to new tail.
     this.last = newTail;
-    console.log(`Old tail: ${copiedOldTail} New tail: ${newTail}`);
+    // Point new tail next to null
+    this.last.next = null;
+    return copiedOldTail;
   }
   
   /** traverse(): logs all Node values from Stack. */
@@ -78,7 +80,8 @@ cars.push('Lightning McQueen');
 cars.push('Mater');
 cars.push('Doc Hudson');
 cars.push('Sally Carrera');
-
+// cars.traverse();
+console.log(cars.pop());
 cars.traverse();
 
 module.exports = Stack;
