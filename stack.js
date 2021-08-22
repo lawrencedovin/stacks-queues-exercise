@@ -20,7 +20,17 @@ class Stack {
   /** push(val): add new value to end of the stack. Returns undefined. */
 
   push(val) {
-
+    let newNode = new Node(val);
+    if(!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    }
+    // Add 1 to length
+    this.size += 1;
+    // Point current tail to new tail/ new node
+    this.tail.next = newNode;
+    // Update tail and set it to newNode
+    this.tail = newNode;
   }
 
   /** pop(): remove the node from the top of the stack
@@ -39,7 +49,7 @@ class Stack {
   /** isEmpty(): return true if the stack is empty, otherwise false */
 
   isEmpty() {
-
+    return this.size === 0 ? true : false; 
   }
 }
 

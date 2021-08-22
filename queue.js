@@ -46,6 +46,7 @@ class Queue {
   dequeue() {
   // Remove Head from start
   // Get following Node after head and make that into the new Head
+    if(this.isEmpty()) throw 'Queue is empty';
     let newHead = this.first.next;
     this.first = newHead;
     this.size -= 1;
@@ -68,12 +69,12 @@ module.exports = Queue;
 
 let fruits = new Queue();
 
-console.log(fruits.isEmpty());
+console.log(fruits.dequeue());
 
-fruits.enqueue('tomato');
-fruits.enqueue('mango');
-fruits.enqueue('apple');
+// fruits.enqueue('tomato');
+// fruits.enqueue('mango');
+// fruits.enqueue('apple');
 
-console.log(fruits.isEmpty());
-fruits.dequeue();
-fruits.traverse();
+// console.log(fruits.isEmpty());
+// fruits.dequeue();
+// fruits.traverse();
